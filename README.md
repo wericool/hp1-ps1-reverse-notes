@@ -14,6 +14,8 @@ You need your own copy of the game. Everything here is our own description: addr
 | `data/asl-opcodes.tsv` | ASL (strat script) opcodes: number, extra words, handler address in `EURO1.GAM`, our name |
 | `data/psyq-sdk-functions.txt` | Sony PSY-Q SDK functions identified by signature (the SDK starts at 0x5B2B0) |
 | `data/sdk-hook-points.txt` | which game function calls which SDK function (pad, GPU, GTE, SPU, CD) |
+| `docs/asl-opcodes.md` | every opcode: name, handler, extra words, behaviour notes (228 of 359 with notes) |
+| `docs/functions.md` | every game function: status and behaviour notes (301 of 561 with notes) |
 | `docs/engine.md` | engine overview: memory layout, actor lists, frame loop, script VM, scene change |
 | `docs/progress.md` | coverage numbers |
 | `tools/psyq_match.py`, `tools/psyq_union.py` | match PSY-Q OBJ signatures against a PS1 executable |

@@ -1,0 +1,562 @@
+address	status	notes (from the native port comments)
+0x10000	ported	secondary and fade on!10000. Raw20000 alone is retained, not cleared. | ASL 0x1D8 (0x41714) clears the secondary layer and 9C bit 0x10000 | r607 item 160 NATIVE POLICY (audio backend only): a row without 0x10000 is a positional emitter; 4D490..4D64C picks the
+0x10268	ported	from 78E38 and feeds 10268 (cheat sequences: not ported); 77620 & 2 debug (0 natively); 339F8; while GP+1E5C == 0 the two | L1 / R1 belong to 10268's cheat sequences (not ported) | input of 10268, not ported (native-front-end-title.h: 77620 debug word is 0 natively), so the word stays 0.
+0x103F0	todo	
+0x104F8	todo	
+0x10604	todo	
+0x106CC	todo	
+0x10710	todo	
+0x10750	ported	10750, actual word6FD04
+0x10780	ported	
+0x10794	ported	Exact scalar leaves10780/10794/107A0 and global wrappers107D4/10804/1082C/10854.
+0x107A0	ported	Exact scalar leaves10780/10794/107A0 and global wrappers107D4/10804/1082C/10854.
+0x107D4	ported	r607 item 191: 0x1B5A0 (the setup): 107D4(4096) -> [0x7B5F0]; s4 = mode 1 or a door with !(+30 & 4) and +48 == 1. When s4 or | scene flags [0x7915C] & 0x800: 107D4(0x8000) -> [0x7D408], word 0 = 0, word i = 0x1000000 / i (i 1..8191, divu). Then a | nonzero mode: 107D4(8192) -> [0x7D30C]; s4 alone continues with 107D4(0x8000) -> [0x7C850] (32x32x32 5DA54 lighting bytes)
+0x10804	ported	Exact scalar leaves10780/10794/107A0 and global wrappers107D4/10804/1082C/10854.
+0x1082C	ported	After ALL requested banks really returned, actual180A0->1082C(savedS5). | Exact scalar leaves10780/10794/107A0 and global wrappers107D4/10804/1082C/10854. | GPU/label/1082C. No generic successful-handler token can advance the stream.
+0x10854	ported	Exact scalar leaves10780/10794/107A0 and global wrappers107D4/10804/1082C/10854.
+0x109A4	todo	
+0x10AF8	ported	
+0x10CAC	ported	
+0x10CDC	ported	Does not execute107D4/10CDC, resource/header mutations, upload or1082C.
+0x10F04	ported	
+0x10F18	todo	
+0x1108C	todo	
+0x11094	todo	
+0x11178	ported	Actual183D8..184C4 including111CC/11178 color copies and actor model pointer | 111CC sets two flag bytes;11178 writes actual argument pointer and | Exact nonnull111CC/11178 color copy for the same private selected record,
+0x111CC	ported	+0x56C (play time); word +0x560 is raised to 0x6000 when (unsigned) below it; 7B78 := 0, 111CC(77808), 11C44 loads | 111CC sets two flag bytes;11178 writes actual argument pointer and
+0x1120C	ported	33CF0..33D08: 77814 / 77818 := LB primary 0x55 / 0x56 (the display offset 1120C applies). | sound {0, kind}, 2B10C corner {a0..a5}, 1120C display offset apply, slider {which, y, value, active} (2B354's eight 19780 | 33C34 (+ the option bytes kept when gp E8C) and 1120C / volumes: step 4 applies it.
+0x11230	todo	
+0x1150C	todo	
+0x11630	todo	
+0x11700	todo	
+0x11804	todo	
+0x1183C	ported	1A044 copyright) drawn from the original IMG files. The IMG layout is 1183C's: a 256-entry CLUT (512 bytes) then w x h 8-bit | 1183C mode 2, which uploads the image again at y + 0x100 row by row from its last row = SKY.IMG flipped vertically); the bolt FORKLIGT.IMG (218 x 128 of it, additive: approximated by alpha = brightest | 1183C mode 2: the second copy at VRAM y + 0x100, rows reversed
+0x11C44	ported	+0x56C (play time); word +0x560 is raised to 0x6000 when (unsigned) below it; 7B78 := 0, 111CC(77808), 11C44 loads
+0x11D4C	ported	one, 0x40 for the other; then 11D4C draws the GAMEOVER image (16, 0, 512 x 256, 128). | r607 item 84: the native title (native-front-end-title.h) vs the ORIGINAL code on random states: the backdrop 12660 (11D4C sprites
+0x1205C	todo	
+0x12394	todo	
+0x124A0	ported	124A0 mode0: upper pixels+own CLUT; mode1: lower pixels+own CLUT.
+0x12660	ported	r607 item 84: the TITLE (mode 2) and the front-end backdrop 12660 as native code. | 19F04 items {144 Start Game, y 0xBA, 0} / {135 Options, y 0xCE, 1} with the cursor 78AF4; 12660; 169A4 (the logo, PC view); | 12660's words (7BA54 scroll, 7B588 bolt timer, 7B58C thunder timer, 7C7DC flash sequence, 7C820 / 7C824 bolt position).
+0x12AB4	ported	
+0x12C50	todo	
+0x12D74	ported	2B698 (12D74, 2A898 pad repeat, the options list, the sound screen 0xE with the 2B354 sliders, the screen-position screen 0xF, | the other words 12D74 clears | 12D74.
+0x12D9C	ported	
+0x12E44	ported	gp+0x254.. stick calibration after the 0x12E44 range check fails (its reset branch): centre 128, max 255, min 0 for both sticks.
+0x13128	todo	
+0x131CC	ported	d-pad bits: NATIVE POLICY, the PC has no 0x131CC stick poll here). Finished -> mode 2 -> the PC reopens the load menu (26864). | Original gp+0x1794.. words produced by the pad poll 0x131CC..0x13A1C for port 0 (playback of recorded input, gp+0x1838, is NOT ported). | The options screen's motor words (2B4D8) drive the connected pad (131CC).
+0x13A20	ported	
+0x13A64	ported	continue the process step, sample primary input (13A64), begin the next frame prefix, drain again. | r607 item 112: 0x3D07C / 0x3D090 read the second pad words 0x78E28 (held, the poll sample) and 0x78DE0 (pressed edge of 13A64).
+0x13AB8	ported	13AB8 writes both the full RAM word and the narrowed lens focal value. | 13AB8 uses signed ASR of the LOW32 product; large u16 products can be negative.
+0x13ADC	ported	
+0x13B50	todo	
+0x13C1C	todo	
+0x13C90	ported	Original240D4 orbit eye +13C90/5DD04 view, optional roll5DF44/5E1D4.
+0x13E0C	ported	13E0C rotation becomes IR = clamp16(floor(M[r][c]*s_c/4096)) via MVMVA sf=1 with IR=(s,0,0)/(0,s,0)/(0,0,s); the last SWC2 of IR3 | Original 0x3BFF0: build the object matrix from the actor angles (+0x24/+0x28/+0x2C via 0x13E0C), rotate the vector with | 36C58 sign-extends the original short angles; 13E0C masks after>>12.
+0x140F0	ported	
+0x141C4	todo	
+0x14208	ported	source 0x14208 "STORY%d.IMG" | Source 0x142C4 non-reset branch (chapter != multiple of 100): 78EB5=1, 78EA8=chapter, 14208(0) loads only the
+0x142C4	ported	Source 0x142C4 non-reset branch (chapter != multiple of 100): 78EB5=1, 78EA8=chapter, 14208(0) loads only the
+0x1437C	ported	r607: source 0x1437C (ASL 0x203, close the book on chapter n): only while busy 78EAC (signed half) == 0: n % 100 == 0 -> 78EB7 := 1; | 0x203 (0x421B4 -> 0x1437C book close, 14450 MoveImage leaf) by the ORIGINAL interpreter vs the native VM + native helpers. | r607: ASL 0x203 (0x421B4 -> 0x1437C) close the book on chapter n (appended ABI)
+0x14400	ported	
+0x14450	ported	78EB5 := 1, 78EB8 := 1 (closing), 78EA8 := n, 78EAC := 2048, 78EB6 := 0, 78EB9 := 1; then 14450 (DrawSync + MoveImage lower := upper, mirrored on the slices; | 14450 MoveImage (768,0,256,256)->(768,256): lower slice := upper (unknown stays unknown) | 0x203 (0x421B4 -> 0x1437C book close, 14450 MoveImage leaf) by the ORIGINAL interpreter vs the native VM + native helpers.
+0x144A0	ported	14544 initial reset amplitude0.144A0/5E2E4 only read LUT/math
+0x14544	ported	14544 initial reset amplitude0.144A0/5E2E4 only read LUT/math
+0x145F4	ported	
+0x14688	ported	
+0x14894	ported	15114 camera projection/14894 lighting are still separate recovery work.
+0x14C10	ported	
+0x14CA8	ported	
+0x15114	ported	15114 camera projection/14894 lighting are still separate recovery work.
+0x155F8	todo	
+0x15CBC	todo	
+0x15CE8	todo	
+0x15DEC	todo	
+0x160D4	todo	
+0x16254	todo	
+0x16504	todo	
+0x16534	ported	16534 builds 17 x 17 SVECTORs (x = -0x780 + 0xF0 * col, y = -0x3E8 + 0x7D * row, z = 0); 16588 loads the identity matrix | 16534 + 16588 (the PC's RTPS: identity rotation, z = 0x800 so H / SZ = 1 / 8). | Item 86: the logo. 16534 (SVECTORs), 16588 (TR, the sy squash; 5E3A4 RotTransPers stubbed over a random sxy table) and
+0x16588	ported	16534 builds 17 x 17 SVECTORs (x = -0x780 + 0xF0 * col, y = -0x3E8 + 0x7D * row, z = 0); 16588 loads the identity matrix | 16534 + 16588 (the PC's RTPS: identity rotation, z = 0x800 so H / SZ = 1 / 8). | Item 86: the logo. 16534 (SVECTORs), 16588 (TR, the sy squash; 5E3A4 RotTransPers stubbed over a random sxy table) and
+0x16870	ported	0x80: a diagonal glint sweeping the logo for 33 of every 256 frames. 16870's 0x908 table (sine shades) has no reader here. | 169A4 (16534 / 16870 / 16588 / 5D218 stubbed: the primitives from a random sxy table and a random clock).
+0x1697C	ported	then squashes sy := (sy >> 1) + (sy >> 3). Flat: no wave. 1697C shades a vertex 0xFF when col + row == (78AFC & 0xFF), else
+0x169A4	ported	19F04 items {144 Start Game, y 0xBA, 0} / {135 Options, y 0xCE, 1} with the cursor 78AF4; 12660; 169A4 (the logo, PC view); | Item 86: the title logo 169A4 = a 16 x 16 grid of POLY_GT4 (UK_TEXT.IMG at VRAM 0x200,0x100, CLUT 5D218(0x200, 0x1FF)). | 169A4's primitives from the sxy table (row stride 17) and the clock 78AFC.
+0x16C44	ported	
+0x16D58	ported	GP+330..338 (16D58 cursors): the EXE's initial data; modes 2 / 6 only copy 334/336 into 330/332 | 16D58's two episode reads use the same current immutable save snapshot.
+0x16E48	ported	r607: ASL 0x1B7 (0x37EF4 read) / 0x1B8 (0x37E2C store) progress scalar with the lazily allocated id at actor+0x152 (16E48 / 17054 / | r607: 0x37EF4 (read) / 0x37E2C (store): +0x152 == 0 -> 16E48 allocates a scalar id into it; then 17054 pushes the signed | Original3D5AC ->16E48: copy current scalar byte to previous,
+0x16E88	ported	Original16E48/16E88 read current (+334/+336), write previous (+330/+332)
+0x16F34	ported	19E4 actual source37D04/16F34, already-owned slot. | 16F34) by the ORIGINAL interpreter vs the native VM: stack, pushed value, +0x152, both cursors and every scalar byte. | byte << 12, or 16F34 stores (popped >> 12, SRA) as a byte. All staged: a refused step consumes no cursor or storage.
+0x16F48	ported	3407C(slot, 0) fresh new-game reset (0x100 = all slot images), 33AE0(arg) 33AE0 exactly (16F48(0,0x37,0) = clear flag bit | 33AE0(arg): 7BA38 / 7D2E0 / 7C798 / 7B608 := 0, 7A4A4[0..5] / 7D328 / 7C6C4 / 7C7B0 [6] := 0; arg != 0: 16F48(0,0x37,0), then | 16F48(0,0x37,0), and the whole 33C34 load apply (copies, 26008, volumes 4C770 x3 / 4C810 as stubbed leaves, E8C gate, 33AE0(0),
+0x17054	ported	r607: ASL 0x1B7 (0x37EF4 read) / 0x1B8 (0x37E2C store) progress scalar with the lazily allocated id at actor+0x152 (16E48 / 17054 / | r607: 0x37EF4 (read) / 0x37E2C (store): +0x152 == 0 -> 16E48 allocates a scalar id into it; then 17054 pushes the signed
+0x1706C	ported	IDs200..255 use the current episode's bank (1706C/16F48), not the
+0x171B8	todo	
+0x171F8	todo	
+0x172DC	ported	state 16/17/18 save (172DC/173CC/17470/5E7C8 write) -> 16 keeps the original "Saving" countdown, 17 = native_save_prepare_slot
+0x173CC	ported	state 16/17/18 save (172DC/173CC/17470/5E7C8 write) -> 16 keeps the original "Saving" countdown, 17 = native_save_prepare_slot
+0x17470	ported	state 16/17/18 save (172DC/173CC/17470/5E7C8 write) -> 16 keeps the original "Saving" countdown, 17 = native_save_prepare_slot | (33D88 + 17470), 18 = write that one slot; ok -> the original 32C9C.. success words, failure -> 30C14 (state 27). | 33D88 + 17470 save preparation: 25FB4 on the primary, slot := primary (0x580 bytes), slot[0] := 1 (slot used), then
+0x175E4	ported	
+0x1764C	ported	Actual18258->1764C allocation/decode and18260/64 return; stops1826C,
+0x17754	ported	incoming_previous is the caller's FP (zero on a fresh 17754 entry). | GAMEOVER.IMG (512 x 256, 15-bit) to VRAM (512, 256), 17754(0, 0, 999, 3) (T0I0M999: the mode-8 scene tuple), 78AE0 := result, | T0I0M999 scene of 17754 is not loaded (its only reader in mode 8 is the 78AE0 word, which mode 8 never uses).
+0x19418	ported	The original 19418 loader consumes exactly204 sequential records: | r607: PC wording for the 204 global game strings (ENGLISH.BIN), presentation only. The language heap (19418/194AC, 0x7D350
+0x1956C	ported	
+0x19598	ported	Actual17E54..17EB4 and195C8 with1956C/19598 scalar codeunit operations.
+0x195C8	ported	
+0x196E4	ported	Original leaves as native calls; 19780 glyph runs become the native slider's eight {glyph, y} pairs, 196E4 / 2B488 dropped.
+0x19704	ported	0x19704 print/measure for drawing, 0x19F44/0x34450 prompt effects, 0x533A8 choice UI) are presentation | 0x19704: sum of glyph advances
+0x19780	ported	sound {0, kind}, 2B10C corner {a0..a5}, 1120C display offset apply, slider {which, y, value, active} (2B354's eight 19780 | Presentation and audio leaves are stubbed in the original and compared call by call (2B354's eight 19780 glyphs against the | Original leaves as native calls; 19780 glyph runs become the native slider's eight {glyph, y} pairs, 196E4 / 2B488 dropped.
+0x19A14	todo	
+0x19CB4	todo	
+0x19D98	ported	Draw: 78DE4 == 0 -> texts 127 / 128 at y 100 / 120 (1A044); 78DE4 == 1 -> text 193 at y 100; otherwise 19D98 options | joined by "'". An empty slot shows [7D350]+0x88 at y 0xA5, x 0x6E + 0x78 * slot. 19D98's a1 is y, sp+0x18 x; shade 0x40, the | window); 19D98 options centred at their x, shade 0xA0 = chosen (gold), 0x40 = grey; 1A044 texts centred; then the fade.
+0x19E98	ported	
+0x19ECC	ported	1A044 text {id, y}, 19F44 option {id, y, value, current, dim, x}, 19ECC option {id, y, value, current}, 4CDD0/4CD3C menu | 2B488 widths); chosen = value == current, bright when the row is active (dim 0). 19ECC = a centred row ("Back"). Sliders are
+0x19F04	ported	19F04 items {144 Start Game, y 0xBA, 0} / {135 Options, y 0xCE, 1} with the cursor 78AF4; 12660; 169A4 (the logo, PC view); | r607 item 84 (NATIVE PC VIEW, cosmetic): the front end's backdrop (12660) and the title's own picture (169A4 logo, 19F04 items, | The title's calls (native_front_end_title_step): logo, the 19F04 items (cursor = gold), the copyright line.
+0x19F44	ported	1A044 text {id, y}, 19F44 option {id, y, value, current, dim, x}, 19ECC option {id, y, value, current}, 4CDD0/4CD3C menu | r607: the title options screen (native-options-menu.h calls). 19F44 with a[4] == 1 = a row label, right-aligned at x; other | 19F44 = a value, left-aligned, the next value of the same row placed after it (the PC measures its own words instead of the
+0x1A044	ported	1A044 {68 copyright, y 0xEC}; 27028 (the background world's frame, LAST: it sees this frame's [0x7B584]). | Draw: 78DE4 == 0 -> texts 127 / 128 at y 100 / 120 (1A044); 78DE4 == 1 -> text 193 at y 100; otherwise 19D98 options | 1A044 text {id, y}, 19F44 option {id, y, value, current, dim, x}, 19ECC option {id, y, value, current}, 4CDD0/4CD3C menu
+0x1A070	ported	Struct offsets are the original ones (0x7C0E8 dialogue, 0x7BA98 narration). Rendering calls (0x1A070,
+0x1A114	ported	Recovered argument order and alignment from196E4..1A114/53CF8, expressed
+0x1A7A4	ported	
+0x1AE60	ported	1AE60 never increments it.
+0x1B5A0	ported	defaults (1B5A0, per level): light matrix 0x79274 = map header +0x58, colour matrix 0x79254 = map header +0x78 | r607 item 191: 0x1B5A0 (the setup): 107D4(4096) -> [0x7B5F0]; s4 = mode 1 or a door with !(+30 & 4) and +48 == 1. When s4 or
+0x1BCBC	ported	
+0x1BD38	todo	
+0x1CEA4	todo	
+0x1DF98	todo	
+0x1E048	ported	
+0x1E070	todo	
+0x1E0B4	ported	r607: the previous frame's render ended with 0x1E0B4 (active/owner cleared); the mode bytes survive. | draws them and 0x1E0B4 then clears only +1C/+18 of every entry, so the mode bytes persist across frames. CRT-cleared at boot. | 0x1E0B4 after the render: active and owner of all four entries := 0.
+0x1E0E0	ported	active, +1D/+1E/+1F colour mode bytes, +20 count. ASL 0x152 (0x420D4 -> 0x1E0E0) adds one; the renderer 0x1E368 (unported) | 0x1E0E0: scan entries in order; an entry already owned by `owner` ends the call unchanged; the FIRST inactive entry is taken | r607: ASL 0x152 (0x420D4 -> 0x1E0E0 add a per-frame actor light to the 4-entry table 0x7C6F4) by the ORIGINAL interpreter vs the
+0x1E2FC	ported	r607: 0x1E368, the 0x152 light renderer. Each frame it undoes its previous edits (1E2FC), then for every active entry of
+0x1E368	ported	active, +1D/+1E/+1F colour mode bytes, +20 count. ASL 0x152 (0x420D4 -> 0x1E0E0) adds one; the renderer 0x1E368 (unported) | A piece is placed by its 24-byte row (+2 rotation bits 10..11, +8 / +0xC / +0x10 position) as in 1E368: rotation 0 (x, z), | 1E368 frame select for one piece from its stream byte 7 (vertex 1 code byte): type (& 0x3F) 1 -> [0x78A08] 1 / 3 = frame 1 / 2,
+0x1F6AC	ported	r57c step2c: the original's no-animation geometry branch. Render 0x1F6AC
+0x21FE0	todo	
+0x2202C	todo	
+0x220E8	todo	
+0x2225C	todo	
+0x22AE4	todo	
+0x22B28	ported	
+0x22C2C	ported	r607: masked primary layer of the original render pose 0x22C2C (evaluate_actor_layered_pose). | Read-only 22C2C secondary full-body branch. No clocks, flags, or actor | r607: the masked PRIMARY context layer of the original render pose 0x22C2C. A group whose bit (1 << (group & 31)) is set in `mask`
+0x2309C	ported	
+0x23140	ported	
+0x231CC	todo	
+0x2344C	todo	
+0x2408C	ported	the scene activation's 2408C writes them besides scripts (0, 0x1000, 0, next to the listener reset); unknown before one. | r607 item 205: 0x2408C (scene setup, from 0x266B0; native: prepare_source_visibility's projection 160 / eye y 4096) stores | r607 item 136: the scene entry 264F4 (26864 / 2674C) runs 2408C for this load too: 0x7B52C / 0x7B530 / 0x7B534 := 0 / 0x1000 / 0
+0x240D4	ported	original6C940, 240D4 | r607 item 136 NATIVE POLICY: a cold start (no pass has produced the 0x240D4 cache yet) treats every live sound as at the | r607 item 136 NATIVE POLICY: a cold start (no pass has produced the 0x240D4 cache, no live camera pose yet) starts the sound
+0x24CA4	ported	0x80 of primary[0x27B]), 25F70 default keys, 33C34 load apply (+ 339F8), 2A2C8 fade (cosmetic). Finished = 24CA4 wrote | 77600 once 24CA4 finished the screen; 0 while open | Mode 6 frames at the game's 30 Hz; once 24CA4 chose mode 3 the session holds the started world.
+0x24D34	ported	Frame (2777C + check 25104): 318B8 then 24D34 on the newly pressed pad, the same native-save-menu.h code as the in-game screen. | One mode 6 frame: 318B8 then 24D34 (the original's frame / check handlers) on the newly pressed pad bits (78E38 layout). | Mode 6: one 318B8 + 24D34 per platform frame on the newly pressed pad; mode 3 enter once 24CA4 chose it.
+0x25D18	ported	2D3A4 (HUD panel words: no front-end reader, not modelled), 77610 := 0, 25D18 (title words below + images: the PC view's), | 25D18 ran on the background world's process (positions drawn, 7B584 reset) | 25D18's words: 7B588 := 0x64, 7B58C := 0, 7C7DC := 0, [0x7B584] := 0, 7C820 := (rand & 0xFF) + 0x80, 7C824 := (rand & 0x7F) + 0x40.
+0x25F04	ported	Mode 2 enter 26458: 7D40C := 1, 3407C(0x100, 0), 25F04, 78ADC := 0, 26734 (background scene: the PC keeps the running one), | 25F04 (front-end keys: primary[1] := 1, [2] := 0, [4..5] := 0, [3] := 3), 4C6AC (sound pause), GP+584 := 1, E98/E94/E9C and | the image 26734 / 264F4 loads the background scene from (after 25F04, before 267BC)
+0x25F70	ported	0x80 of primary[0x27B]), 25F70 default keys, 33C34 load apply (+ 339F8), 2A2C8 fade (cosmetic). Finished = 24CA4 wrote | 25F70. | Calls that change game data or presentation outside this screen (3407C new-game slot init, 25F70 default options, 33AE0 /
+0x25FB4	ported	25FB4 (start of 33D88): remember the location: unless episode [1] == 1 with level [2] 0 or 9, [A]:=[1] [B]:=[2] [C]:=[4] [D]:=[3]. | 33D88 + 17470 save preparation: 25FB4 on the primary, slot := primary (0x580 bytes), slot[0] := 1 (slot used), then | slot+0x57C := 30B44(slot). Needs a fully known primary; returns the updated primary too (25FB4 writes it).
+0x26008	ported	33C34: slot (7D324) -> primary -> backup, 26008, 77814/77818 + volumes (options backend), 77848/7784A (rewritten by 264F4), | 26008 (inside 33C34, after both copies, primary only): [1]:=[A] [2]:=[B] half[4]:=[C] [3]:=[D] [6]:=[A] [7]:=[B] [8]:=[C] [9]:=[D]. | 33C34 first part: primary := slot, backup (checkpoint 0x829A0) := primary, then 26008 on the primary only.
+0x26048	ported	wait), 26048 (GP+584 := 0; 7D36C is 1 after mode 1, so no 4C6F8), 7D40C := 0. | 26048 (7D36C == 1: no 4C6F8)
+0x26084	ported	r607 item 214: 10230 -> 4C63C -> 4A704 closes the speech stream on EVERY gameplay scene change (26084 == 0), so the
+0x26120	todo	
+0x26458	ported	Mode 2 enter 26458: 7D40C := 1, 3407C(0x100, 0), 25F04, 78ADC := 0, 26734 (background scene: the PC keeps the running one), | 26458 (header of native-front-end-title.h) on the image. 25F04 with 775F8 == 2 writes the mode-6 key bytes. hooks = the
+0x264F4	ported	78ADC := 0, 26734 (264F4: loads the front-end background scene 1,0,0,3 -- NOT done: cosmetic, the PC draws its own backdrop), | the image 26734 / 264F4 loads the background scene from (after 25F04, before 267BC) | 33C34: slot (7D324) -> primary -> backup, 26008, 77814/77818 + volumes (options backend), 77848/7784A (rewritten by 264F4),
+0x26734	ported	Mode 2 enter 26458: 7D40C := 1, 3407C(0x100, 0), 25F04, 78ADC := 0, 26734 (background scene: the PC keeps the running one), | 78ADC := 0, 26734 (264F4: loads the front-end background scene 1,0,0,3 -- NOT done: cosmetic, the PC draws its own backdrop), | the image 26734 / 264F4 loads the background scene from (after 25F04, before 267BC)
+0x267BC	ported	267BC (78475 := 1, E8C := 0, E84 != 0 -> 3407C(0x100, 0), 7D324 := -1, 7D358 := 0, 30C54), 25D18 (title images), fade 2A2C8. | the image 26734 / 264F4 loads the background scene from (after 25F04, before 267BC) | 267BC (E84 != 0) + 30C54 on the menu words.
+0x27028	ported	1A044 {68 copyright, y 0xEC}; 27028 (the background world's frame, LAST: it sees this frame's [0x7B584]). | One mode 2 frame: 26E54 then 24418 on the newly pressed pad (78E38). The background world's frame (27028) follows in the caller. | 27028 sees Start: the pause ends
+0x2834C	ported	r607 item 89: the pause gates of 27028 at 2743C (mode 3, Start newly pressed): 2834C (28734 = GP+BD8 != 0 and GP+BDC < 0: the | no fade callback running (789CC == 0) the fade counts as finished. While a callback runs, 2834C decides exactly. | (native_pause_gate_2743c): 2834C fade-in finished (no fade callback = finished: the native start has no entry fade), no save screen (77610 == 2), no dialogue window (7C0E8), primary
+0x28388	ported	
+0x284F4	ported	phase <= -2 * step -> 28740: BD8 := 1, 789CC := 0). 284F4 draws the phase before the step (native: black at min(phase,256)/256). | (284F4 black, 29AE0, 2945C, the 29088 wipe) are all replaced by the same native black-alpha adapter (cosmetic hybrid policy). | Whole2A230 callback, including28740's callback clear.284F4 draw and saved
+0x28734	ported	Check 24418: GP+1E5C != 0 -> nothing. A running fade (789CC) waits for 28734, then 77600 4 -> demo, 10 -> mode 10, else by | GP+BD8 = 28734's answer | 24418 on the title words (pressed = 78E38). done = 28734 reported the fade's end: the caller switches by next_77600 / item_78af4.
+0x28740	ported	phase <= -2 * step -> 28740: BD8 := 1, 789CC := 0). 284F4 draws the phase before the step (native: black at min(phase,256)/256). | r607: the other 2A2C8 fade-in callbacks (ASL 0xFA): same BDC -= BE0 / 28740 flow, only the draw differs (29AE0, 2945C, wipe). | r607: 789CC values whose callback is a 2A230-shaped fade-in (BDC -= BE0, completion 28740 when BDC <= -2*BE0). Their draws
+0x28760	ported	while BD8 == 0; phase > 2 * step + 0x100 -> 28760: BD8 := 1, 789CC stays, black). 2A2C8(2) = fade-in 2A230 (phase 0x12F -= 0x20; | Fade28740/28760 restores only the lens; never silently recompute RAM78E8C. | Entire2879C callback scalar flow +28760 completion. The284F4 draw is an
+0x2945C	ported	r607: the other 2A2C8 fade-in callbacks (ASL 0xFA): same BDC -= BE0 / 28740 flow, only the draw differs (29AE0, 2945C, wipe). | (284F4 black, 29AE0, 2945C, the 29088 wipe) are all replaced by the same native black-alpha adapter (cosmetic hybrid policy).
+0x29AE0	ported	r607: the other 2A2C8 fade-in callbacks (ASL 0xFA): same BDC -= BE0 / 28740 flow, only the draw differs (29AE0, 2945C, wipe). | (284F4 black, 29AE0, 2945C, the 29088 wipe) are all replaced by the same native black-alpha adapter (cosmetic hybrid policy). | door fade callback 789CC=0x2A0C0: same scalar flow as 2879C, draw 29AE0 instead of 284F4
+0x2A280	ported	r607 item 90: the screen overlay 2A594 (drawn by 2A280 after the 789CC fade callback while 789D0 != 0; ASL 0x150 switches it,
+0x2A2C8	ported	(78E38 & 0x4000) -> [0x7B584] := 0x6000, 77608 := clock, 4CDD0(0, 1) + 4CD3C, 2A2C8(1), 77600 := 3. Without a fade: Up (0x10) | Item 85: the front-end fade (789CC callback, GP+BDC phase, BE0 step, BD8 done). 2A2C8(1) = fade-out 2879C (phase 0 += 0x20 | while BD8 == 0; phase > 2 * step + 0x100 -> 28760: BD8 := 1, 789CC stays, black). 2A2C8(2) = fade-in 2A230 (phase 0x12F -= 0x20;
+0x2A538	ported	r607: 0x379C8: inline word != 0 -> 2A538 (789D0 := 1, BEC/BF0/BF4/BF8 := 0), else 2A55C (789D0 := 0).
+0x2A55C	ported	r607: 0x379C8: inline word != 0 -> 2A538 (789D0 := 1, BEC/BF0/BF4/BF8 := 0), else 2A55C (789D0 := 0).
+0x2A56C	ported	r607: 0x37A10 -> 2A56C: BF8 := top >> 12, BF4 := next, BF0 := next, BEC := bottom (all SRL).
+0x2A594	ported	r607 item 90: 2A594 screen overlay (ASL 0x150 / 0x151) on the OT head, over the world and its text windows. | r607 item 90: the screen overlay 2A594 (drawn by 2A280 after the 789CC fade callback while 789D0 != 0; ASL 0x150 switches it, | r607 item 90: the D3D presentation of 2A594 (draw_native_screen_overlay) against the PS1 result per channel,
+0x2A898	ported	2B698 (12D74, 2A898 pad repeat, the options list, the sound screen 0xE with the 2B354 sliders, the screen-position screen 0xF, | GP+D18, D19 (2A898) | 2A898: held-direction repeat counters, D18/D19 = counter >= 6 and odd, or a fresh left/right press.
+0x2A984	ported	
+0x2A9A4	todo	
+0x2A9B0	todo	
+0x2A9C8	todo	
+0x2A9D4	todo	
+0x2A9F0	todo	
+0x2A9FC	todo	
+0x2B044	todo	
+0x2B10C	ported	sound {0, kind}, 2B10C corner {a0..a5}, 1120C display offset apply, slider {which, y, value, active} (2B354's eight 19780 | eight blocks from x 0xF8, filled v * 9 / 128 as 2B354. 2B10C corners stay at their fixed coordinates: the display offset (77814 / 77818) moves the whole frame (RendererD3D11::set_display_offset).
+0x2B20C	todo	
+0x2B258	todo	
+0x2B354	ported	2B698 (12D74, 2A898 pad repeat, the options list, the sound screen 0xE with the 2B354 sliders, the screen-position screen 0xF, | sound {0, kind}, 2B10C corner {a0..a5}, 1120C display offset apply, slider {which, y, value, active} (2B354's eight 19780 | 2B354: a +-0x10 step per repeat, clamped 0..0x7F; returns "changed". Draws eight glyphs (one slider call here).
+0x2B488	ported	Not modeled: 2B488 string widths (x positions; the caller passes them, the PC lays out its own text), 78AFC frame clock (only | 2B488 widths of strings 134, 153, 122, 189 (x positions only) | 2B488 widths); chosen = value == current, bright when the row is active (dim 0). 19ECC = a centred row ("Back"). Sliders are
+0x2B4D8	ported	2B4D8 vibration), check 24AFC (Triangle = cancel 2B5EC + 30030; Cross on item 6 = keep; 10-frame countdown GP+57C, then | 2B4D8. | The options screen's motor words (2B4D8) drive the connected pad (131CC).
+0x2B520	ported	78ADC := 0, 26734 (background scene: the PC keeps the running one), 2B520, 25D18 (title words / images: not modelled, cosmetic), | r607: the title's OPTIONS screen (mode 5) as native code: enter 26764 (25F04, 78ADC := 0, 2B520 + 2FF90), frame 2774C = | 2B5EC: every working value back to what 2B520 saved (Triangle = cancel).
+0x2B5EC	ported	2B4D8 vibration), check 24AFC (Triangle = cancel 2B5EC + 30030; Cross on item 6 = keep; 10-frame countdown GP+57C, then | 2B5EC: every working value back to what 2B520 saved (Triangle = cancel). | pause options: Triangle = 2B5EC (24AFC does it in mode 5)
+0x2B698	ported	One mode 5 frame: 2B698 then 24AFC on the pad words (78E08 pressed, 78E04 released, 78E10 held; 78D90 direction = the held | 2B698 (12D74, 2A898 pad repeat, the options list, the sound screen 0xE with the 2B354 sliders, the screen-position screen 0xF, | 0x570 / 0x571) is the original, checked by r607-options-check. 2B698 is shared with the in-game pause menu (775F8 != 5): only
+0x2D284	todo	
+0x2D310	todo	
+0x2D3A4	ported	2D3A4 (HUD panel words: no front-end reader, not modelled), 77610 := 0, 25D18 (title words below + images: the PC view's), | Values are the level-start producer 0x2D3A4 (flags 0x1100, everything else 0). The HUD module (0x2B000..0x30600) that reads | r607 item 119: [0x7B554] HUD meter word (ASL write selector 160, 0x3C804). 0x2D3A4 zeroes it (0x2D448); the HUD module copies
+0x2D4EC	todo	
+0x2D550	todo	
+0x2D5CC	todo	
+0x2D6E8	todo	
+0x2D858	todo	
+0x2DA74	todo	
+0x2DB14	todo	
+0x2DB90	todo	
+0x2DBB8	todo	
+0x2DBE0	todo	
+0x2E090	todo	
+0x2E104	todo	
+0x2E160	todo	
+0x2E300	todo	
+0x2E520	ported	r607 item 174: 0x3DA34 = raw [0x7B554]; the HUD (0x2E520 -> 0x2F870) overwrites it only from a nonzero [0x7C874]
+0x2FF90	ported	r607: the title's OPTIONS screen (mode 5) as native code: enter 26764 (25F04, 78ADC := 0, 2B520 + 2FF90), frame 2774C = | 2B520 (+ 2FF90): working and saved copies from primary 0x55..0x57 / 0x570 / 0x571 and from the sound engine. | 2FF90: 4C830 / 4C7CC(0, 0x80) / 4C7CC(2, 0x80), each stored as a signed byte into primary + backup and widened back.
+0x30030	ported	2B4D8 vibration), check 24AFC (Triangle = cancel 2B5EC + 30030; Cross on item 6 = keep; 10-frame countdown GP+57C, then | 30030: the sound screen's saved values back (cancel). | the 4C830 / 4C7CC getters stubbed), frame 2B698 (12D74, 2A898, 2B354, 2B4D8 run as original code) and check 24AFC (2B5EC, 30030).
+0x300E4	ported	
+0x302B0	todo	
+0x30394	ported	27028 with 77610 == 1: 53FEC samples (control != 0, no budget catch-up), 30394 runs 2B698, the process step is skipped.
+0x30498	ported	- 0x30498 letterbox counter [0x789B0] (the dialogue window is frozen until it reaches 32). | 0x30498 letterbox step; a0 = scripted sequence owns the frame OR dialogue byte nonzero.
+0x30A98	ported	
+0x30B44	ported	state 23 load read (5EAD8/5ECA4) -> re-read the file; 30B44 sum check as the original (13 ok / 24 failed). | + 0x580 * slot), each a copy of the primary progress image 0x82420 with the 30B44 byte sum of bytes 0..0x57B stored at +0x57C. | 30B44(slot): unsigned byte sum of the slot's first 0x57C bytes (u32 wrap).
+0x30B8C	ported	state 11 create block (33FD8 + 30B8C + 5F71C/5F170) -> write a file of three zero slots; result -> 337E0 (30 ok / 27 failed). | 33FD8 (+ 3407C(256,0) in the load menu) + 30B8C + create/write: a file of three zero slots. | 30B8C: sum of the three slot sums (stored at 0x82F20 by the write path).
+0x30BCC	ported	30BCC | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x30BE8	ported	30BE8 | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x30C14	ported	(33D88 + 17470), 18 = write that one slot; ok -> the original 32C9C.. success words, failure -> 30C14 (state 27). | 30C14
+0x30C34	todo	
+0x30C54	ported	267BC (78475 := 1, E8C := 0, E84 != 0 -> 3407C(0x100, 0), 7D324 := -1, 7D358 := 0, 30C54), 25D18 (title images), fade 2A2C8. | 267BC (E84 != 0) + 30C54 on the menu words. | 26864 on the image: 25F04 for mode 6, GP+584 := 1, E98/E94/E9C/78ADC := 0, 267BC + 30C54.
+0x31224	ported	Original leaf list as native calls (31224 = card poll, not part of the PC screen).
+0x3129C	ported	33968 / 3129C, slot cursor 336C4) as native code over the PC save file (native-save-storage.h). Game logic (states, choices, | 3129C (cross pressed): returns 0 stay, 1 finished, 2 back (24CA4(1)), 3 leave (24CA4(0)). | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x318B8	ported	Frame (2777C + check 25104): 318B8 then 24D34 on the newly pressed pad, the same native-save-menu.h code as the in-game screen. | One mode 6 frame: 318B8 then 24D34 (the original's frame / check handlers) on the newly pressed pad bits (78E38 layout). | Mode 6: one 318B8 + 24D34 per platform frame on the newly pressed pad; mode 3 enter once 24CA4 chose it.
+0x336C4	ported	33968 / 3129C, slot cursor 336C4) as native code over the PC save file (native-save-storage.h). Game logic (states, choices, | 336C4. | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x337E0	ported	state 11 create block (33FD8 + 30B8C + 5F71C/5F170) -> write a file of three zero slots; result -> 337E0 (30 ok / 27 failed). | 337E0
+0x33844	ported	r607: the game's save/load screen (frame body 0x318B8, state word 0x7C7F0 / table 0x763EC, pad handlers 24D34 -> 33844 / 33910 / | 33844 (circle): load menu on a used slot -> "Overwrite and start new game" question. Always returns 0 to 24D34. | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x33910	ported	r607: the game's save/load screen (frame body 0x318B8, state word 0x7C7F0 / table 0x763EC, pad handlers 24D34 -> 33844 / 33910 / | 33910 (square): load menu -> "Begin new game without saving". | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x33968	ported	33968 / 3129C, slot cursor 336C4) as native code over the PC save file (native-save-storage.h). Game logic (states, choices, | 33968 (triangle): may this state go back? | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x339E4	todo	
+0x339F8	ported	from 78E38 and feeds 10268 (cheat sequences: not ported); 77620 & 2 debug (0 natively); 339F8; while GP+1E5C == 0 the two | 0x80 of primary[0x27B]), 25F70 default keys, 33C34 load apply (+ 339F8), 2A2C8 fade (cosmetic). Finished = 24CA4 wrote | 33AE0(0) unless E8C, 339F8.
+0x33AE0	ported	3407C(slot, 0) fresh new-game reset (0x100 = all slot images), 33AE0(arg) 33AE0 exactly (16F48(0,0x37,0) = clear flag bit | 33AE0(arg): 7BA38 / 7D2E0 / 7C798 / 7B608 := 0, 7A4A4[0..5] / 7D328 / 7C6C4 / 7C7B0 [6] := 0; arg != 0: 16F48(0,0x37,0), then | 33AE0(0) unless E8C, 339F8.
+0x33BAC	ported	33BAC progress tables, 2A2C8, 4C6F8, 535A0 slot list, 33C34 load apply of state 13) are returned as typed calls, in the
+0x33C34	ported	0x80 of primary[0x27B]), 25F70 default keys, 33C34 load apply (+ 339F8), 2A2C8 fade (cosmetic). Finished = 24CA4 wrote | 33C34 ran (a saved game was loaded into the image) | sound engine volumes: boot 100CC / 33C34 / options (4C770, 4C810)
+0x33D88	ported	(33D88 + 17470), 18 = write that one slot; ok -> the original 32C9C.. success words, failure -> 30C14 (state 27). | 25FB4 (start of 33D88): remember the location: unless episode [1] == 1 with level [2] 0 or 9, [A]:=[1] [B]:=[2] [C]:=[4] [D]:=[3]. | 33D88 + 17470 save preparation: 25FB4 on the primary, slot := primary (0x580 bytes), slot[0] := 1 (slot used), then
+0x33E38	ported	
+0x33FD8	ported	state 11 create block (33FD8 + 30B8C + 5F71C/5F170) -> write a file of three zero slots; result -> 337E0 (30 ok / 27 failed). | 33FD8 (+ 3407C(256,0) in the load menu) + 30B8C + create/write: a file of three zero slots.
+0x34028	todo	
+0x3407C	ported	Mode 2 enter 26458: 7D40C := 1, 3407C(0x100, 0), 25F04, 78ADC := 0, 26734 (background scene: the PC keeps the running one), | 267BC (78475 := 1, E8C := 0, E84 != 0 -> 3407C(0x100, 0), 7D324 := -1, 7D358 := 0, 30C54), 25D18 (title images), fade 2A2C8. | 3407C(slot, 0) fresh new-game reset (0x100 = all slot images), 33AE0(arg) 33AE0 exactly (16F48(0,0x37,0) = clear flag bit
+0x3418C	ported	Boot 106F0 / mode 1 enter 26398: 3418C default options (primary 0x52..0x57 / 0x570 / 0x571, engine volumes, 77814 / 77818). | 3418C (boot 106F0 and mode 1 enter 26398): default options into primary (not backup) and the engine; 77814 / 77818 := 0. | 3418C writes primary only
+0x34224	ported	34224..34248: exact writes, including the conditional8000 default only
+0x3424C	ported	3424C | non-I/O states), the pad step 24D34 (with 24CA4 / 33844 / 33910 / 33968 / 3129C / 336C4 / 30BE8 / 30BCC / 3424C), and the card
+0x3426C	ported	sprintf("%d%%", ((word +0x3E4 >> 12) * 100) / 47) at y 0xA5, x 0x78 + 0x78 * slot, and 3426C's play time (word +0x56C, frames at | 3426C play time h'mm'ss at y 0xB6; the PC centres them under the slot name). | frames that 3426C shows on a save slot) += 1. Nothing in the frame reads it, so it is applied here, once per gameplay frame.
+0x34430	ported	
+0x34450	ported	0x19704 print/measure for drawing, 0x19F44/0x34450 prompt effects, 0x533A8 choice UI) are presentation | 5DAF4 strcat, 34450 glyph conversion, 19D98 draw stubbed: the sprintf formats read from the executable are applied to the
+0x344AC	ported	Actual 1D1/0x41348: ensure context (0x344AC), primary layer pointer := NULL (context+0), actor 9C &= ~0x4000. | r607: ASL 0x1D2 (0x41388), the primary twin of 0x1D9: after 344AC, ctx+8 (primary rate) := the popped value's low 16 bits. | r607 item 178: 0x1C selector 140 (table 0x76750[140] = 0x3D74C with s0 = the ROOT [0x78A1C] actor): jal 344AC (ensure the
+0x34528	ported	r607: actor matrix builder 34528 (13E0C rotation + scale columns 34554..3463C + translation) against the ORIGINAL,
+0x3466C	ported	r607 item 146: 346B0 -> 3479C: [0x7C7EC] (normal used) >= capacity or no free head [0x78A38] -> 3466C pops the | r607 item 146: pool full, 3466C dropped the spawn
+0x346B0	ported	flags&0x400, and calls the constructor 0x346B0 for every other one; | 0x346B0  copies each actor's script entry out of THAT RECORD's own fields; | Recovered SLES03662 D9 -> 3E314/346B0 normal-pool data initialization.
+0x34D24	ported	classification (36FA4/34D24) requires its own source-qualified service. | Original36FA4/34D24 perform address arithmetic without a count guard. | 34D24: signed wrapped XYZ box test; encoded radius shift uses MIPS low5 bits.
+0x34DE0	ported	Source 0x4DAEC (called by 0x3515C through 0x34DE0's tail): walks the live particle/effect list from gp+0x12C0 (0x788B8) through | 1) when 9C lacks 0x20000000: clear 9C bit 0x40000000 (+dirty 0x7BA68), 0x34DE0 clears every NORMAL actor's DC/D8/E0 reference to the | r607 item 140: the delete paths (34DE0) clear a child's D8 when its parent dies (e.g. an M004 SquareShadow whose
+0x34E64	ported	35D24/34E64 shared resource restoration precedes current actor visits. | sees the 34E64 reverse restore already performed above, then | boundary when the original needs an unowned platform return. The 34E64
+0x34EB0	ported	
+0x3515C	ported	Source 0x4DAEC (called by 0x3515C through 0x34DE0's tail): walks the live particle/effect list from gp+0x12C0 (0x788B8) through | Source 0x3515C order: the 9C prefix always runs; B8 != 0 (a sound still owns the actor) RETAINS the actor after it. | Source 0x3515C for a SPECIAL actor (A0 bit 0x20000, 200-byte record, list head 0x78A3C / free head 0x78A40 / count special_used).
+0x3534C	ported	3534C: same actor and owned context, no host or fabricated guest pointer. | runs in the special pass (35E68: 3515C / A0 gates / 358BC / 36EC4; no 3534C, no category gate, no E0/130 clears). | 3534C writes114; normal returned ASL tail35E2C/30 writesE0 and130 lowhalf.
+0x358BC	ported	358BC pushes main3DC and consumes pending1;36EC4 clears yield;120/124 | 358BC pushes the current native typed source return, selects1564, then | runs in the special pass (35E68: 3515C / A0 gates / 358BC / 36EC4; no 3534C, no category gate, no E0/130 clears).
+0x35CD0	ported	
+0x35FA8	ported	Its only per-frame writer is the actor pass 0x35FA8 (copy at 0x367F4: +34..+40 -> +54..+60; rider average 0x36468) and
+0x364E8	ported	matrix cache.364E8 intentionally keeps that old cache when A0 skips | 364E8 normal-list matrix/previous-pose update. Moved model region | 364E8 moved-model selection: grid36FA4 or ordered34D24 retention/scan fallback.
+0x3684C	ported	Source 0x3684C for one actor whose group is active (B8!=0, BC!=0, A0&0x800000 clear). | manager-2 groups' 3684C / 4D0EC volume pairs this pass | item 81: policy (0xD0 family) actors' 3684C pairs by slot          // 369B0 B8 = mask (+ 369CC release) for actors whose mask changed
+0x369F0	ported	r607 item 123: the source manager queue's due sample stops (0x48538 / 0x98 -> 0x487AC) before this frame's 0x369F0 pass.
+0x36A60	ported	
+0x36A90	todo	
+0x36AD0	todo	
+0x36B5C	ported	0x36B5C  the MAP-ACTOR loop constructs ONE ACTOR PER RECORD - it loops the | EVERY carrier (0x36B5C constructs one actor per record; 0x35E48 walks the whole | loops exactly those counts (0x36CDC; the 0x400 map-record skip loop is 0x36B5C),
+0x36CDC	ported	loops exactly those counts (0x36CDC; the 0x400 map-record skip loop is 0x36B5C), | 36CDC, current79158 | 36CDC really cleared this private anchor word; the static pass changes
+0x36EC4	ported	actor+0x0C) and calls the ASL interpreter 0x36EC4 on EACH actor; | 0x36EC4  the interpreter reads actor+0x00 - that actor's OWN instruction | actor list calling 0x36EC4 per actor, which reads that actor's own instruction
+0x36FA4	ported	classification (36FA4/34D24) requires its own source-qualified service.
+0x374E0	ported	374E0 is an exact door-cell lookup, not a ground solver. -1 means no match.
+0x37B04	ported	
+0x38214	ported	
+0x3879C	ported	r607: a group receipt for a group that is ALREADY live in the manager records (actor +BC, created by an earlier 0x3879C/0x4CE6C). | r607 item 210: a special (200-byte) actor keeps the same +AF/+B4/+B8/+BC/+C0/+C1 fields; 3879C reads them at the actor pointer. | mode word 0x775F8==6 or id==-1, otherwise 0x3879C request preparation and
+0x3A6A4	ported	1F5/3A81C -> 3A6A4: starting at the CURRENT waypoint (actor+0x1C), test the rectangle spanned by the waypoint and its link (NULL link wraps | 0x3A81C pops z (top) then x, searches the waypoint rectangles (3A6A4) and pushes 4096 / 0. | 1F5/3A6A4 search pairs for a rectangle holding (x,z) (appended ABI)
+0x3B624	ported	3B624 copies six fields, no padding | 0x3B624 only touches +0x24..+0x98, inside both the normal (364-byte) and the special (200-byte) actor record.
+0x3BFF0	ported	Original 0x3BFF0: build the object matrix from the actor angles (+0x24/+0x28/+0x2C via 0x13E0C), rotate the vector with | handlers 0x3C4B4/0x3C51C/0x3C074/0x3C0B4/0x3C24C/0x3C28C (all through 0x3BFF0 = matrix 13E0C + ApplyMatrixLV 5DBA4). | is rotated by the actor's own angles and added to its position (0x3BFF0). Oracle: r607-ops-check.
+0x3C560	ported	3C560/137 returns this exact address. It is an opaque source | r607 item 187: 0x25 (3DEBC) = 3C560 on the iterator actor (+0xDC); selector 26 = 0x3C604 (+0xA4, sets [0x7BA68] at borrow). | r607 item 182: ASL 0x1D (0x3E0D8 -> 3C560 on [0x78A1C]): the same pose-word borrow on the ROOT actor.
+0x3C8F0	ported	r607: the caller may be a normal OR special actor (0x3C8F0 selectors 32..41/153 read actor+14/+1C and scene waypoint records). | r607 item 207: the original 0x1C/0x6A/0x6B readers (3C8F0 with s0 = [0x78A1C], 3A3AC/3A258 4547C(root+0x34)) never test the root | - 110 / 78 / 15 / 169 through the original read dispatcher 0x3C8F0(a0 = executing, a1 = read actor, a2 = selector), the same call
+0x3E230	ported	3E230 consumes these five inline words, in this order. Only the low byte | 0x3E314/0xD9: 1 = insert after the parent; 0x3E380/0x1E8: 2 = append at the tail). Same 3E230 + 346B0 otherwise. | collision words come from its 3E230 descriptor (low byte / low 30 bits as allocated), its storage from its birth binding.
+0x3E458	ported	3E458 with a non-null anchor publishes the unlink + insert-after | NULL root global: 3E458 then rewinds the instruction cursor by one word and
+0x3E4CC	ported	
+0x3E8AC	ported	The actual36E88 ->3E8AC transition AFTER committed pools. Clears only the | Own selected episode comes from the original filename producer;3E8AC clears once before | Explicit level-loader36E88 ->3E8AC producer: clear all256 Globals values
+0x4009C	ported	0x1E9/0x1EA (0x401E4/0x40210) are 0x189/0x18A with 0x4009C(1): the A0 0x18000 and 0x880 candidate filter.
+0x406C0	ported	r607: 0x40928: inline string index, 406D8 string, drawn at anchor x - width (not width/2), then anchor reset (406C0).
+0x406D8	ported	r607: ASL 0x208 (0x40A60): after the 406D8 prefixes, a string whose first glyph is 0 or 10 counts as empty (4096), else 0. | r607: ASL 0x208 (0x40A60 scene string emptiness, via 0x406D8 prefixes and 0x52580) — native_world_label_empty + the VM operand path | 406D8 string, left / right aligned draw at the label anchor, anchor reset (T1L1M000 script 2 words 79..167).
+0x421F0	ported	
+0x4275C	ported	r607 item 166: source 0x35204 frees a nonzero +144 animation context through 0x4275C. The native bank owns that context | r607: ASL 0x1AE: release the buffer a base (offset 0) 0x1AD reference names through 0x4275C; a derived (offset) reference or a | r607: ASL 0x1AE (0x40304 -> 0x4275C release) VM path: pops a WordArenaBufferReference and hands (token, origin) to the release
+0x42858	ported	42858 or42A00
+0x429A0	ported	429A0 with caller-observed successful107D4 allocation. Unknown payload bytes
+0x42A00	ported	
+0x42A48	ported	
+0x42B30	todo	
+0x42B60	ported	
+0x42B78	ported	20408..204C8: fog range from the marker record (42B78: +0x3C near / +0x40 encoded far, or +0x34 / +0x38 with +0xA0 bit | r607 item 99: map fog range = marker record +0x34 near / +0x38 code (42B78: [0x7C784] / [0x7C7E0], [0x7D2F8]). | 42B78; incoming marker remains unknown on no-match. Actual preceding loader
+0x42CC8	ported	contact buffer exactly like 0x42CC8 initialises sp58 | the main query never calls 0x43A78 with +9C bit 0x400 (0x42CC8: if(!(9C&0x400))); nothing to compare | Original 0x43A78 (dynamic actor-model collision of the normal floor query 0x42CC8) and the merge of its three contact groups
+0x434D0	ported	434D0 guards43510..43540 return43A4C without contact writes outside the | with the static 0x434D0 contacts (0x42E44..0x4349C). Native port of the recovered arithmetic: every multiply keeps the original | Full merge of 0x42CC8 (after the static 0x434D0 and dynamic 0x43A78 queries) for the caller 0x39934 (+9C bit 0x40000 cleared):
+0x43A78	ported	Differential check: native query_native_dynamic_floor_core against the ORIGINAL 0x43A78 executed on the research CPU. | the main query never calls 0x43A78 with +9C bit 0x400 (0x42CC8: if(!(9C&0x400))); nothing to compare | Original 0x43A78 (dynamic actor-model collision of the normal floor query 0x42CC8) and the merge of its three contact groups
+0x44068	ported	Original 0x44AB8: the actor-model branch of the wall query 0x44068 (the static terrain branch is 0x443A8/0x444E0). For every | planes with the 5/4 slack rule) and each accepted face adds its pushout to the accumulator 0x44068 keeps at sp40. | Original 0x44068 tail after BOTH branches (static accumulator sp10, actor-model accumulator sp40). `dynamicSlot` is the live slot of
+0x443A8	ported	Original 0x44AB8: the actor-model branch of the wall query 0x44068 (the static terrain branch is 0x443A8/0x444E0). For every | r606: end-to-end check of the actor-model wall branch through the ORIGINAL 0x44068 (static pass 0x443A8 made empty by a 0x0 grid,
+0x444E0	ported	Original 0x44AB8: the actor-model branch of the wall query 0x44068 (the static terrain branch is 0x443A8/0x444E0). For every | Recovered443A8/444E0 static-terrain branch: motion direction, sphere/edge
+0x44AB8	ported	Original43A78/44AB8 traverse78A34 only, not the special pool. | Original 0x44AB8: the actor-model branch of the wall query 0x44068 (the static terrain branch is 0x443A8/0x444E0). For every | Original 0x44AB8 actor-model branch (plus the 0x44068 combined tail).
+0x45208	ported	
+0x45250	todo	
+0x452CC	ported	r607: read table 0x76750 [75..78] -> 452CC/453C4/4534C/45424(book+0x34, caller+0x34): 3D/XZ squared q12>>6 distance (77/78) | Selectors 75 (0x452CC) and 76 (0x453C4) are the source square roots (5DA54) of the 3D / XZ squared sums of selectors 77 / 78. | r607 item 105: selectors 75..78 (0x452CC / 0x453C4 / 0x4534C / 0x45424, as in native-iterator-field.h): squared q12>>6
+0x4534C	ported	35BAC/35BF0: actor-minus-78A1C root, 4534C truncated GTE squares. | r607: read table 0x76750 [75..78] -> 452CC/453C4/4534C/45424(book+0x34, caller+0x34): 3D/XZ squared q12>>6 distance (77/78) | Selectors 77 (0x4534C) and 78 (0x45424) are the squared q12>>6 distance between the caller's pending pose and the
+0x453C4	ported	r607: read table 0x76750 [75..78] -> 452CC/453C4/4534C/45424(book+0x34, caller+0x34): 3D/XZ squared q12>>6 distance (77/78) | Selectors 75 (0x452CC) and 76 (0x453C4) are the source square roots (5DA54) of the 3D / XZ squared sums of selectors 77 / 78. | 45424/453C4 never read Y.
+0x45424	ported	r607: read table 0x76750 [75..78] -> 452CC/453C4/4534C/45424(book+0x34, caller+0x34): 3D/XZ squared q12>>6 distance (77/78) | Selectors 77 (0x4534C) and 78 (0x45424) are the squared q12>>6 distance between the caller's pending pose and the | 45424/453C4 never read Y.
+0x4547C	ported	Selector 74 (0x3D0A4 -> 0x4547C): yaw toward the [0x78A28] actor, 5D734 ratan2(d.x, d.z) (full words), (angle & 0xFFF) << 12. | r607 item 207: the original 0x1C/0x6A/0x6B readers (3C8F0 with s0 = [0x78A1C], 3A3AC/3A258 4547C(root+0x34)) never test the root | r607 item 112: 74 (0x3D0A4 -> 0x4547C) yaw and 75 (0x3D0BC -> 0x452CC) 3D distance from the executing actor to the
+0x454CC	ported	Read selector 158 (0x3D9DC -> 0x454CC(a0, a1)): d = *a0 - *a1 (full words); 5FAB8 = GTE SQR sf=1 on IR1..3 loaded by LWC2 | r607 item 108: selector 158 (0x3D9DC -> 0x454CC): pitch from the executing actor to the [0x78A28] actor. d = target+34/38/3C - | r607 item 112: 158 (0x3D9DC -> 0x454CC with a0 = root+34, a1 = executing+34): pitch from the executing actor to the root
+0x45548	ported	r607: ASL 0x6B (0x3A258 turn yaw AND pitch toward the ROOT actor via 0x45548) run by the ORIGINAL interpreter 0x36EC4 against the native VM. | r607: ASL 0x6E (0x39D20 turn yaw AND pitch toward a point via 0x45548) run by the ORIGINAL interpreter 0x36EC4 against the native VM. | r607 item 101: 0x3A180 = the pitch half of 0x6B (45548(root+0x34, actor+0x34), only +0x24 turns); pops only the step.
+0x45600	ported	r607: read-only sources of the animated 0x45600 sphere path: the current scene image (clip + frame tables) and the word arena | 45600 sphere acquisition is the original separate service boundary. | 45600 base sphere and unanimated fallback. Extra animated/bone producers must
+0x457FC	ported	457FC exact scalar/order layer. Caller authenticates current normal lifetimes;
+0x45B64	ported	45B64 leaves7BA60/queue contents unchanged; only source actor effects publish.
+0x45BC8	ported	45BC8 globals in this order:7C790,7B53C,7BA78,7C868,7BA4C,7BA50.
+0x45ED8	ported	45ED8: strict comparisons and the incremented loop's OLD index are significant.
+0x45F84	todo	
+0x467DC	ported	
+0x46810	ported	r607 item 116: 46810(a0 = marker). Its word stores 46870..468A8 are recorded exactly (0x7D340 / 0x7D348 / 0x7C7A8 / 0x7D344 / | r607 item 116: a nonzero marker resource is admitted only after the recorded 46810 return (its last store 468A8). | receipt. It cannot skip111CC/4C850/46810 or admit42B60/fullboot/main.
+0x46B6C	ported	
+0x46B88	ported	46B88 rounds with wrapped(a1+63)&~63, compares unsigned wrapped head+request | First actual selected-map bank: genuine prewait ->46B88 reservation and
+0x46BBC	ported	against head_limit, returns0 on exhaustion without changing head.46BBC moves
+0x46C04	ported	46C04(7879C,1), wrapped subtraction and unsigned fallback.
+0x46CA0	ported	
+0x46D08	ported	
+0x46DE0	ported	then actual46D08 pump +46DE0 condition. Normal single-bank path returns
+0x46E14	ported	46E14 enqueue. Stops at actual5FDA8 byte helper for immediate transfer. | 46E14 call; source memory remains live and immutable while waiting.
+0x46FE8	ported	
+0x47134	ported	
+0x47148	ported	
+0x4724C	ported	flags1C &= 0x9FFFFE05 (clears active 8). Then 4724C(service+0) (engine+9C == 1 and nonnull: row+4 = row+20 = 0), service+0 = | r607 item 79: complete_audio_kind1_stream (native 49778 -> 48450 -> 479C4 / 4724C stream member cleanup) vs the ORIGINAL 49778 on
+0x47358	todo	
+0x4744C	ported	block, one-shots 0 + final 1; 4744C rewrites them in the SPU ring), so only filter/shift are validated here. | interleave 0x400 per channel for stereo, 4744C), played to the end unless descriptor flags & 4 (4B56C +40 == 0: 4989C
+0x47694	todo	
+0x4774C	ported	(+12 == root) gets +12 = 0, is unlinked (0x47774) and prepended to the manager free list +0x10 (0x4774C); stops after +0x3D members. | Actual47ACC..47B60 plus24 complete60D28/4774C calls. Stops BEFORE47B64.
+0x47774	ported	(+12 == root) gets +12 = 0, is unlinked (0x47774) and prepended to the manager free list +0x10 (0x4774C); stops after +0x3D members.
+0x477B4	ported	
+0x477DC	ported	477DC writes links only; arbitrary allocator bytes are not known zero.
+0x47860	ported	Embedded first-manager512-node478E4/47860 transport. Partial payload bytes
+0x478E4	ported	A member with an active voice (+0x3A != 0) would enqueue the 0x478E4 stop command: refused (not composed). | original pushes volume/pan queue commands (0x478E4, opcode 9/10) every frame; the | Source 0x4C044 (stop channel): 0x4B448 member lookup, then 0x478E4 queues command code 1 with the member in the 0x79484 buffer.
+0x479C4	ported	479C4(manager+20, member) | Source 49778 (payload+0C = member): NULL member+18 -> no effect. Otherwise 48450: 479C4 deletes the member's pending | 48450: 479C4 drops the member's pending manager+20 commands, (3A 3: no 480D0 keyoff) 47FE8 channel unlink = the native voice
+0x47A78	ported	
+0x47A8C	todo	
+0x47C5C	todo	
+0x47D78	ported	47D78. AC stays raw; this API does not complete a frame or start bank voices. | Native owner-driven subsequent4A334+47D78 current idle-resource/clean
+0x47F28	ported	47F28 priorityFF/channel0. Exact list links determine physical slot.
+0x47FE8	ported	part (state 2 keyoff 480D0 / 47FE8 channel unlink) is the native voice's release (NATIVE POLICY: the native voice stands in | 48450: 479C4 drops the member's pending manager+20 commands, (3A 3: no 480D0 keyoff) 47FE8 channel unlink = the native voice | 480D0 keyoff and 47FE8 channel loops are empty: the native voice's release); the model keeps 3A 0. Every manager, queue,
+0x4808C	ported	
+0x480D0	ported	part (state 2 keyoff 480D0 / 47FE8 channel unlink) is the native voice's release (NATIVE POLICY: the native voice stands in | 48450: 479C4 drops the member's pending manager+20 commands, (3A 3: no 480D0 keyoff) 47FE8 channel unlink = the native voice | r607 item 123: the release command (opcode 1, handler 0x48348) of a SAMPLE member: 3A != 0 -> 480D0 keyoff per voice and 3A = 3
+0x48128	todo	
+0x48180	todo	
+0x481C8	todo	
+0x481F8	todo	
+0x48228	todo	
+0x4827C	ported	
+0x482F0	ported	Read-only current active47DF8/482F0/60888 adaptation after first keyon.
+0x48348	ported	r607 item 123: the release command (opcode 1, handler 0x48348) of a SAMPLE member: 3A != 0 -> 480D0 keyoff per voice and 3A = 3 | r607 item 123: the native model never runs the manager callbacks (0x496F8), so every newly queued node of opcode 1 (0x48348
+0x48450	ported	Item 82: the one-shot's native voice reported its actual natural end (the 49778 / 48450 analogue: the channel is no longer | Source 49778 (payload+0C = member): NULL member+18 -> no effect. Otherwise 48450: 479C4 deletes the member's pending | 48450: 479C4 drops the member's pending manager+20 commands, (3A 3: no 480D0 keyoff) 47FE8 channel unlink = the native voice
+0x48538	ported	start handler 0x48538 queues it after max(1000 * descriptor frames / member+24, manager+58) ticks, 0x98 queues it at once. | release), 2 (0x48538 start) or 4 (0x487AC stop) on manager 0 / 2 is recorded here with its due tick (relative delays summed in | start handler 0x48538 after max(1000 * descriptor word0 / member+24, manager+58) ticks (none when member+40 == 0 or no
+0x48820	ported	
+0x488C4	ported	
+0x48FAC	todo	
+0x4907C	todo	
+0x49158	todo	
+0x49294	todo	
+0x49778	ported	Active-group head is genuinely zero:49E5C/49778 are not skipped. | Item 82: the one-shot's native voice reported its actual natural end (the 49778 / 48450 analogue: the channel is no longer | Source 49778 (payload+0C = member): NULL member+18 -> no effect. Otherwise 48450: 479C4 deletes the member's pending
+0x497D4	ported	
+0x49B78	todo	
+0x49E5C	ported	Active-group head is genuinely zero:49E5C/49778 are not skipped. | Item 79 (NATIVE POLICY for the SPU envelope poll 49E5C -> 49FF0): the actual natural end of a one-shot stream voice
+0x4A02C	todo	
+0x4A148	ported	
+0x4A334	ported	
+0x4A468	ported	Actual4C850->4A468 on the current loaded-scene manager. Requires genuine | 4A468's NULL path does not read a descriptor. A1 is never used by4A468.
+0x4A4A0	ported	
+0x4A5D0	todo	
+0x4A704	ported	r607 item 214: 10230 -> 4C63C -> 4A704 closes the speech stream on EVERY gameplay scene change (26084 == 0), so the | r607 item 214: 4A704 stream close stops the voice model too
+0x4A740	ported	
+0x4AB98	todo	
+0x4AD0C	ported	
+0x4AF24	todo	
+0x4AFFC	todo	
+0x4B0D4	ported	r607: source 0x4B0D4 (via 0x4CEAC, actor deletion with +BC): walk the group from its root through the +4 links; every member | r607: 0x4CEAC(manager, root) -> 0x4B0D4 on manager 0 (first) or 2 (third); same release as plan_scene_sound_release. | r607: 0x4CEAC(2, root) -> 0x4B0D4 group release on the scene manager, as a complete plan for prepare/publish_scene_sound_commit.
+0x4B1A8	ported	
+0x4B2BC	ported	0x4CD3C(manager[AF]) resolves channel -1 through 0x4B2BC on that group, starts via 0x4BEEC and returns request+14 (else -1); | r607: plan on the scene (third) manager for a group already live at root (actor +BC); continue with plan_scene_sound_channel (0x4B2BC).
+0x4B448	ported	Same source 0x4B448 walk for a group that is already live in the manager records | 4B448 found no member: no source effects | 4B448 lookup sees only our known channel0;4BB2C clamps volume128.
+0x4B4D8	ported	
+0x4B550	todo	
+0x4B56C	ported	channels (4B56C: +3E = (flags & 1) + 1). Read-only over the live logical manager. | interleave 0x400 per channel for stereo, 4744C), played to the end unless descriptor flags & 4 (4B56C +40 == 0: 4989C
+0x4B784	ported	the 0x4B784 whole-group walk and its returned active-channel mask (members with a
+0x4BB2C	ported	r607 item 120: source 4BB2C/4BD44 is manager-agnostic; manager 0 (0x78878, actor AF 0) is admitted like the scene manager. | NATIVE POLICY (r604, backend-owned attenuation): the source 0x4BB2C tail toggles member+0x1C bit31 to the request's bit and, for | E1: volume >> 12), both clamped 128 like 4BB2C; published with the commit (NativeColdSceneContext stream volumes).
+0x4BEEC	ported	the nonempty 0x121 query path refuses), 0x4BEEC engine gate for non-source | 0x4CD3C(manager[AF]) resolves channel -1 through 0x4B2BC on that group, starts via 0x4BEEC and returns request+14 (else -1); | nearest row of its group (+24), then queries / allocates / starts / releases an SPU voice (4C14C / 4CE6C / 4BEEC) and copies
+0x4C044	ported	scene-manager (AF=2) stop 0x98 -> 0x4C044 | Source 0x4C044 (stop channel): 0x4B448 member lookup, then 0x478E4 queues command code 1 with the member in the 0x79484 buffer.
+0x4C0D8	ported	r607 item 106: same 4CF48 -> 4C14C -> 4C0D8 walk on manager [0x78878+4*AF] for AF 0 (first manager) or 2 (scene manager). | Source 0x4CF48 -> 0x4C14C -> 0x4C0D8 (flags=1 query used by ASL 0x121): channel index
+0x4C14C	ported	nearest row of its group (+24), then queries / allocates / starts / releases an SPU voice (4C14C / 4CE6C / 4BEEC) and copies | r607 item 106: same 4CF48 -> 4C14C -> 4C0D8 walk on manager [0x78878+4*AF] for AF 0 (first manager) or 2 (scene manager). | published manager. The descriptor stride follows the manager kind (+0x4C: kind 0 -> 20, kind 1 -> 16), like 4C14C.
+0x4C2CC	ported	r607 item 142: 4C744(a0, a1) -> 4C2CC stores engine +B8 = a0 & 0x1FFF and +BC = (int16)a1; the ASL 0xFA fade-in cases pass
+0x4C2FC	ported	
+0x4C458	ported	
+0x4C4F0	todo	
+0x4C514	todo	
+0x4C530	todo	
+0x4C54C	todo	
+0x4C63C	ported	r607 item 214: 10230 -> 4C63C -> 4A704 closes the speech stream on EVERY gameplay scene change (26084 == 0), so the
+0x4C6AC	ported	25F04 (front-end keys: primary[1] := 1, [2] := 0, [4..5] := 0, [3] := 3), 4C6AC (sound pause), GP+584 := 1, E98/E94/E9C and | plays on its own output at Music Volume v/128 (+ Mono), paused by the game's pause (4C6AC) and the PC (window / menu). | 26864 -> 26734: the background scene is built after 25F04/4C6AC (front end open) and before 267BC's menu.
+0x4C6F8	ported	wait), 26048 (GP+584 := 0; 7D36C is 1 after mode 1, so no 4C6F8), 7D40C := 0. | 26048 (7D36C == 1: no 4C6F8) | 4C6F8
+0x4C744	ported	transition) is composed: 789CC=0x2A0C0, GP+1E64=11, fade BDC=0/BE0=32 (BD8 cleared on return), BE4=projection H, and 4C744(24576,-512) | 5 -> 16, otherwise 4 (case 4 = case 2's body). Every case: BE4 := 5FBB8 (projection H), 4C744(28672, 512) -> audio engine | r607 item 142: 4C744(a0, a1) -> 4C2CC stores engine +B8 = a0 & 0x1FFF and +BC = (int16)a1; the ASL 0xFA fade-in cases pass
+0x4C770	ported	sound engine volumes: boot 100CC / 33C34 / options (4C770, 4C810) | 33C34's 4C770(0/1, [0x52]) / 4C770(2, [0x53]) / 4C810([0x54]) on the loaded primary. | glyphs), and the audio leaves 4C770 {channel, value, 0x80} / 4C810 {mode}, which this file also applies to NativeAudioOptions
+0x4C7CC	ported	(the sound engine's manager volume +5C and system +A4, read back by 4C7CC / 4C830). | 2FF90: 4C830 / 4C7CC(0, 0x80) / 4C7CC(2, 0x80), each stored as a signed byte into primary + backup and widened back. | the 4C830 / 4C7CC getters stubbed), frame 2B698 (12D74, 2A898, 2B354, 2B4D8 run as original code) and check 24AFC (2B5EC, 30030).
+0x4C810	ported	sound engine volumes: boot 100CC / 33C34 / options (4C770, 4C810) | 33C34's 4C770(0/1, [0x52]) / 4C770(2, [0x53]) / 4C810([0x54]) on the loaded primary. | glyphs), and the audio leaves 4C770 {channel, value, 0x80} / 4C810 {mode}, which this file also applies to NativeAudioOptions
+0x4C830	ported	(the sound engine's manager volume +5C and system +A4, read back by 4C7CC / 4C830). | 2FF90: 4C830 / 4C7CC(0, 0x80) / 4C7CC(2, 0x80), each stored as a signed byte into primary + backup and widened back. | the 4C830 / 4C7CC getters stubbed), frame 2B698 (12D74, 2A898, 2B354, 2B4D8 run as original code) and check 24AFC (2B5EC, 30030).
+0x4C850	ported	receipt. It cannot skip111CC/4C850/46810 or admit42B60/fullboot/main.
+0x4C87C	todo	
+0x4C8A8	todo	
+0x4C8C8	ported	
+0x4C97C	ported	
+0x4CA0C	ported	r607: source 0x4CA0C: the current remap global 0x788A0 NULL -> 0, else its first word, with -1 -> 0 (read from the SAME retained | r607: source 0x3684C head. An actor with BC != 0 and A0 & 0x800000 compares 0x4CA0C (= *[0x788A0], 0 when that remap global is
+0x4CA38	todo	
+0x4CAD8	todo	
+0x4CC7C	ported	XSPS size, copies declared bytes and executes4C97C/4CC7C metadata effects.
+0x4CCA8	ported	
+0x4CD1C	todo	
+0x4CD3C	ported	0x4CD3C start. Everything here is STAGING: actor bytes go into the quantum's | source 0x4CD3C returns request+14 (channel 0) when the start wrapper returned nonzero | 0x4CD3C(manager[AF]) resolves channel -1 through 0x4B2BC on that group, starts via 0x4BEEC and returns request+14 (else -1);
+0x4CDD0	ported	Request image after 0x3879C/0x4CDD0 on the new-group path (source 0x38888..0x388F0). | r607: source 0x3879C with actor +BC != 0: request+8 = BC, request+14 = -1, +AF untouched; 0x4CDD0 bank, flags|0xD, 0x4D7CC volume; | r607: 0x3889C existing group: request group = BC, channel = -1, then 0x4CDD0 selection; a NULL selection returns 0 from 3879C
+0x4CE6C	ported	r607: a group receipt for a group that is ALREADY live in the manager records (actor +BC, created by an earlier 0x3879C/0x4CE6C). | nearest row of its group (+24), then queries / allocates / starts / releases an SPU voice (4C14C / 4CE6C / 4BEEC) and copies
+0x4CEAC	ported	r607: source 0x4B0D4 (via 0x4CEAC, actor deletion with +BC): walk the group from its root through the +4 links; every member | to B8 and, for a zero mask with A0 & 0x18000 == 0x18000, release the group (4CEAC) and clear | 3) otherwise storage release (caller), BC must be 0 (0x4CEAC group release unsupported), B8=BC=A0=9C=0, unlink from the special
+0x4CEE0	ported	Item 82: a completed policy group: 3684C skips it once B8 is 0; while B8 still holds the channel, the 4CEE0 mask is 0, so | 3684C LBU actorAF ->4CEE0 loads78878+4*AF; preserve that owner selection. | E1 volume, each a sequential 4CEE0 call). Applied in order after the first deferred update; never mixed with a deferred stop.
+0x4CF14	ported	r607 item 102: a 0x98 stop after the staged effect in the same quantum (source order: start, then 0x4CF14 stop). | r607 item 198: further 0x98 stops after the first deferred one (no deferred update): each a sequential 4CF14 call, applied in | r607 item 202: 0x98 stops AFTER the deferred update chain (source order: effect, E1/E5 update(s), then 4CF14 stops); applied
+0x4CF48	ported	r607 item 106: same 4CF48 -> 4C14C -> 4C0D8 walk on manager [0x78878+4*AF] for AF 0 (first manager) or 2 (scene manager). | Source 0x4CF48 -> 0x4C14C -> 0x4C0D8 (flags=1 query used by ASL 0x121): channel index | 4CF48(1): playing -> 1, ended -> +5B4 := -1 and 0. NATIVE POLICY (audio backend timing, HANDOFF 119): the window's voice
+0x4CF7C	ported	Exactly recovered here: listener distance (0x4CF7C), near/far high-bit selection, | 5D734 table for the 4CF7C angle | Item 81 (NATIVE BACKEND): the original 3684C runs for this actor's group too (BC != 0 there); its 4CF7C / 4D0EC pair
+0x4D054	ported	4D054 with NULL optional angle output: CPU MULT/LO XZ squares, original5DA54*2.
+0x4D0EC	ported	manager-2 groups' 3684C / 4D0EC volume pairs this pass | 4D0EC(request, distance, angle): +18 (and +14) = 127 inside B0, linear to 0 at B4, 0 beyond; then the angle quadrant | Item 81 (NATIVE BACKEND): the original 3684C runs for this actor's group too (BC != 0 there); its 4CF7C / 4D0EC pair
+0x4D210	ported	
+0x4D69C	ported	
+0x4D708	todo	
+0x4D7CC	ported	r607 item 120: E5 pitch (request flags 4, +28 = 4D7CC factor) on manager 0 or 2; E1 stays flags 8 on manager 2. | r607: source 0x3879C with actor +BC != 0: request+8 = BC, request+14 = -1, +AF untouched; 0x4CDD0 bank, flags|0xD, 0x4D7CC volume; | (group BC, channel C, 0x4D7CC(P)) through 0x4CEE0(AF). NATIVE POLICY as E1: on the Windows single-channel group (AF 0/1,
+0x4D970	ported	builder snapshot after 0x4D970 normalization (from_builder only) | 0x4D970 | 0x4F644 pops z, y, x (raw words) into a stack vector, normalizes the builder (0x4D970) and emits at that point (0x4E0E8)
+0x4D9D0	ported	
+0x4DA58	ported	ResetPool covers 4DA58 alone, NOT the selected 4DAB4 bootstrap/live pool.
+0x4DAB4	ported	actual 4DAB4 entry | ResetPool covers 4DA58 alone, NOT the selected 4DAB4 bootstrap/live pool.
+0x4DAE4	ported	
+0x4DAEC	ported	Source 0x4DAEC (called by 0x3515C through 0x34DE0's tail): walks the live particle/effect list from gp+0x12C0 (0x788B8) through | deleted actor, 0x4DAEC clears the owner of its live effects (project_native_particle_owner_clear, caller), then 9C |= 0x20000000;
+0x4DB38	ported	
+0x4DBC8	ported	r607: ASL 0x1A6 (0x4F544 -> 0x4DBC8(actor, template+16, point, vx, vy, vz)): a template emitter whose vector halves come from the | 0x4DBC8 | Actor+40 is copied by the original but not consumed by4E0E8/4DBC8's final
+0x4E0E8	ported	r607: ASL 0x1A7 (4F600 -> 4E430(actor, builder 788C0)) and 0x1A8 (4F644 -> 4E0E8(actor, builder, popped point)) use the SAME | 0x4E0E8 | Research/native candidate for 4E0E8 -> 4DBC8 scalar record construction.
+0x4E248	ported	0x4E248 | r607: admit 0x4E248 (ASL 0x1A9 emitter) for its own check only | r607: ASL 0x1A9 core — 0x4E248 (actor-position offset/spread, then 0x4DBC8 with an explicit vector): plan_particle_actor_point +
+0x4E430	ported	ASL opcode 0x1A3 (source 0x4F410 -> 0x4E430(actor, template+16)): spawn a particle effect from a | r607: ASL 0x1A7 (4F600 -> 4E430(actor, builder 788C0)) and 0x1A8 (4F644 -> 4E0E8(actor, builder, popped point)) use the SAME | 0x4E430
+0x4E5DC	ported	
+0x4E624	ported	ASL 0x18C (0x4E624), appended (ABI)
+0x4E63C	ported	
+0x4E684	ported	ASL 0x18F (0x4ECDC): if the template's owner word (+8) is the executing actor it is cleared, then 0x4E684 releases the reference.
+0x4E708	ported	
+0x4E748	ported	
+0x4E77C	ported	
+0x4E868	ported	
+0x4E8BC	ported	
+0x4E8F0	ported	
+0x4E9C8	ported	
+0x4EA18	ported	
+0x4EA28	ported	
+0x4EA5C	ported	
+0x4EA68	ported	
+0x4EA78	ported	
+0x4EAAC	ported	
+0x4EABC	ported	
+0x4EAF8	ported	
+0x4EB08	ported	
+0x4EB3C	ported	
+0x4EB54	ported	
+0x4F8FC	ported	Source 0x4F8FC: per-frame update of the live particle/effect list (gp+0x12C0 active, gp+0x12C4 free). Handles the non-empty list that | 4F8FC incl. non-empty live list (appended ABI)
+0x4FD2C	ported	
+0x4FD80	todo	
+0x51A24	todo	
+0x51D18	ported	
+0x51D44	todo	
+0x520B8	todo	
+0x52580	ported	r607: ASL 0x1B2 (0x405EC). '#' skips through 52580 started at BYTE 2 (glyph 1 low byte): count = 1 + every byte read while the | 0x52580 from byte s+2: count starts 1, ++ per probe, reads the LOW byte of each halfword, stops on non-hex. | Exact406D8 byte arithmetic: for LHU '#',52580 starts at byte+1 (zero),
+0x525EC	ported	NATIVE voice model (replaces the audio-manager voice of 0x525EC/0x526EC/0x5279C): +5B4 stays -1 when no voice plays,
+0x526EC	ported	NATIVE voice model (replaces the audio-manager voice of 0x525EC/0x526EC/0x5279C): +5B4 stays -1 when no voice plays, | 0x526EC result: query of the voice channel | nonzero, else 0. For that window: +5B4 < 0 -> 0x1000; otherwise 526EC: +5B8 != 0 -> -1, else the voice-channel query
+0x52770	todo	
+0x5279C	ported	NATIVE voice model (replaces the audio-manager voice of 0x525EC/0x526EC/0x5279C): +5B4 stays -1 when no voice plays, | the first option also stopping the voice (5279C: +5B4 != -1 -> stop; native voice model fields cleared, the PC voice backend | 526EC: +5B8 != 0 -> playing; else the voice query (native voice model: voice_active). 5279C: +5B4 != -1 -> stop.
+0x52804	ported	- 0x52F44 boot projection, 0x52804 start (line split via the existing recovered wrap_original), | r607 item 157: +5C0 / +5C4 / +5C8 ARE written by the ASL starters before 0x52804 (0xF2 0x52CA4 / 0x1E0 0x52D54: +5C0 = 4096, | The words each ASL starter writes before 0x52804 (see the header note). Returns false for a handler that is not a starter.
+0x52F44	ported	Source52F70/52F44 freshboot byte7C0E8 producer. Unknown/unported text | - 0x52F44 boot projection, 0x52804 start (line split via the existing recovered wrap_original), | source 0x52F44 (plus BSS-zero policy for never-written fields)
+0x52F70	ported	r607 item 213: an OPEN window no longer refuses: 10178 -> 52F70 -> 52F44 resets both windows (active byte, lines, close flag | Actual10178->52F70->52F44 resets only these source fields.
+0x52FA8	ported	- 0x52FA8 per-frame update for the subset "no speech, no choice, no button page skip", | 0x52FA8 update. Returns false (with reason) for any branch outside the proven subset. | state is the one the per-frame 52FA8 update last observed through the same 526EC query (native_text_update: voice_active
+0x533A8	ported	0x19704 print/measure for drawing, 0x19F44/0x34450 prompt effects, 0x533A8 choice UI) are presentation | them (native_text_prompt_words) before native_text_start. The choice UI 0x533A8 is ported in native_text_update (logic only; | 0x533A8 choice UI (only when +5C4 != 0), reading the HELD pad word [0x78E10]: left (0x80) with +5C8 == 0 -> +5C8 = 1, right (0x20)
+0x53568	todo	
+0x535A0	ported	33BAC progress tables, 2A2C8, 4C6F8, 535A0 slot list, 33C34 load apply of state 13) are returned as typed calls, in the | r607 item 88: the slot details of 535A0 (slots at 0x813A0, stride 0x580 = the primary layout). A used slot (byte 0) shows | keys ('>' cross = Space, ']' circle = C, '[' triangle = E, '<' square = X, '{' '}' = A / D). The 535A0 slot list is drawn
+0x53750	ported	Actual538D8/53750 selection, bound to current loader key pointers and the | 53750 integer division truncates the Q12 weight; no guessed clip FPS.
+0x537A0	ported	537A0: signed-half operands/weight, arithmetic right shift, then SH narrowing.
+0x53820	ported	53820 preserves the complete original16-byte key.
+0x538D8	ported	538D8 uses group0 time, not a separate timeline for each bone. The original
+0x5396C	ported	5396C translations: primary is ROOT-relative replacement on a mask hit and | bone: the 0x5396C local point of bone/group `bone` for the actor at `slot` (the same sampler as ASL 0xC5); optional. | r607: 0x45624.. clip A = +138, frames = A+1C, f = frames[+13C]. A NULL f with A+20 != 0 is the 0x5396C bone path (refused);
+0x53CF8	ported	53CF8 measures with19704 but draws raw. No coherent interpretation of | Recovered argument order and alignment from196E4..1A114/53CF8, expressed
+0x53D70	todo	
+0x53E3C	todo	
+0x53F24	ported	
+0x53F58	todo	
+0x540C8	todo	
+0x5410C	todo	
+0x541BC	todo	
+0x54498	todo	
+0x5456C	todo	
+0x545FC	todo	
+0x546B4	todo	
+0x54704	todo	
+0x54AC8	todo	
+0x54B14	todo	
+0x54C54	todo	
+0x54DD0	todo	
+0x5501C	ported	
+0x5508C	ported	
+0x55100	ported	Original5508C/555C8/55100. This is a resource-qualified scalar portal-query
+0x555C8	ported	Original5508C/555C8/55100. This is a resource-qualified scalar portal-query
+0x557D4	todo	
+0x55898	ported	55898's actual return address from17B80; after native transfer completion.
+0x559E0	todo	
+0x55B84	todo	
+0x55F3C	ported	0x13E relight (55F3C: frame 2 = lerp(frame 1, frame 0, intensity), byte 7 flag 0x80 / 0x40) and the type-1 animation select. | 55F3C per channel: GTE DPCS sf=1 with RGB = frame 1 byte, FC = frame 0 byte << 4, IR0 = intensity -> lerp toward frame 0. | Mesh vertex colours (R | G << 8 | B << 16 | 0xFF << 24) for the current frame selection (3 = the 55F3C frame 2 computed
+0x56000	todo	
+0x560E8	ported	560E8 squares/shifts each term BEFORE summing, then divides8192<<12. | Native port of53820/56268/560E8 + the base-clip branch of22C2C. Explicit
+0x56268	ported	56268: GPF(first) then GPL(second) for components0..2; two separately | Native port of53820/56268/560E8 + the base-clip branch of22C2C. Explicit
+0x56390	ported	r607 item 99: the D3D map shader depth cue (RendererD3D11::MapFog) against the integer 56390 reference: SZ below near keeps | 56390: SZ below near keeps the colour, at / beyond far it is black, between: DPCS toward FC = 0 with | 56390 map depth cue: SZ = dot(row, position) in source units; far_z == 0 disables.
+0x565EC	todo	
+0x57F28	todo	
+0x5804C	todo	
+0x584FC	todo	
+0x5852C	todo	
+0x5855C	todo	
+0x5858C	todo	
+0x585C0	todo	
+0x585F0	todo	
+0x58620	todo	
+0x58630	todo	
+0x58720	todo	
+0x58B50	todo	
+0x58B74	todo	
+0x58CE8	todo	
+0x58D44	todo	
+0x58DDC	ported	
+0x58E44	todo	
+0x58F60	todo	
+0x58FF0	todo	
+0x59088	ported	Item 87: 1183C mode 2 (25D18's SKY.IMG, 512 x 256 at VRAM 0x300,0): after the CLUT and the image, one LoadImage 59088 per
+0x590E8	ported	
+0x591A0	todo	
+0x5924C	todo	
+0x592A8	todo	
+0x59318	todo	
+0x593D8	todo	
+0x598D0	todo	
+0x59950	todo	
+0x59B88	todo	
+0x59DF8	todo	
+0x59E18	todo	
+0x59EB0	todo	
+0x59F48	todo	
+0x59F64	todo	
+0x5A824	todo	
+0x5A86C	todo	
+0x5A8C0	todo	
+0x5AB70	todo	
+0x5ADD0	todo	
+0x5B048	todo	
+0x5B07C	todo	
+0x5B1C0	todo	
+0x5B288	todo	

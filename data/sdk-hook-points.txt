@@ -1,0 +1,106 @@
+## LIBAPI.LIB
+  ChangeClearPAD           called from 58720
+  ChangeClearRCnt          called from 58720
+  EnterCriticalSection     called from 58720
+  ExitCriticalSection      called from 58630 58720
+  GPU_cw                   called from 58b74
+  HookEntryInt             called from 58630 58720
+  ResetEntryInt            called from 58720
+  ReturnFromException      called from 58720
+  SetSp                    called from 1df98 21fe0 22ae4 35fa8 3879c
+  _96_remove               called from 58630
+## LIBC.LIB
+  bcmp                     called from 4eb54
+  memcpy                   called from 4009c 59318 593d8
+  memset                   called from 33fd8 34028 3407c 406d8 42a00 42cc8 4a02c 4c54c 4c63c 4e5dc 4fd80 51a24
+  printf                   called from 10604 10af8 11094 17754 231cc 267bc 30498 30c54 36fa4 4275c 54704 58720 58b74 5b07c
+  rand                     called from 12660 1f6ac 25d18 2e160 358bc 3a6a4 3b624 48fac 4907c 49158 4dbc8 4e0e8 4e248 4e430 4f8fc
+  setjmp                   called from 58630
+  sprintf                  called from 109a4 14208 17754 26120 2d4ec 2d5cc 2da74 2db14 3426c 535a0 54704
+  strcat                   called from 13128 17754 3426c
+  strcpy                   called from 13128 17754
+  strncmp                  called from 10af8 11094 30c54
+  strrchr                  called from 10af8 11094
+## LIBCD.LIB
+  CdControl                called from 46fe8 540c8
+  CdControlB               called from 109a4 10af8 10cdc 10f18 47148 54704
+  CdControlF               called from 4724c 47358 4744c
+  CdDataCallback           called from 109a4 10af8 10cac 54704
+  CdInit                   called from 109a4 54704
+  CdIntToPos               called from 10cdc 10f18 47358
+  CdPosToInt               called from 109a4 10af8 11094 4744c
+  CdRead2                  called from 540c8
+  CdSearchFile             called from 109a4 54704
+  StCdInterrupt            called from 541bc
+  StFreeRing               called from 54498 5456c
+  StGetNext                called from 54498
+  StSetRing                called from 5410c
+  StSetStream              called from 5410c
+## LIBETC.LIB
+  GetVideoMode             called from 593d8
+  SetVideoMode             called from 11230
+  VSync                    called from 10604 10af8 1150c 11700 124a0 17754 26458 26734 267bc 27028 47a8c 47c5c 4a704 53f58 54704 5b048 5b07c
+  startIntrDMA             called from 58630
+  startIntrVSync           called from 58630
+## LIBGPU.LIB
+  GetClut                  called from 11d4c 1205c 16254 169a4 19780
+  GetTPage                 called from 19780
+  SetDefDispEnv            called from 11230
+  SetDefDrawEnv            called from 104f8 11230
+  SetDrawLoad              called from 2344c
+  SetDrawMode              called from 11d4c 19780 28388 284f4 28760 2945c 29ae0 2a594 4fd80 51d44
+  SetDrawMove              called from 2344c
+## LIBGTE.LIB
+  ApplyMatrixLV            called from 13c90 3534c 3879c 3bff0 3e4cc 45600 520b8
+  InitGeom                 called from 13adc 5410c
+  MulMatrix2               called from 13c90 1b5a0
+  NormalClip               called from 155f8
+  ReadGeomScreen           called from 2a2c8
+  RotMatrixZYX             called from 13c90
+  RotMatrix_gte            called from 13c90
+  RotTrans                 called from 1a114
+  RotTransPers             called from 15dec 16588
+  SetBackColor             called from 1b5a0
+  Square0                  called from 452cc 4534c 453c4 45424 4cf7c
+  Square12                 called from 1f6ac 454cc 45548
+  SquareRoot0              called from 144a0 14688 1e368
+  SquareRoot12             called from 131cc 1b5a0 1f6ac 3a6a4 452cc 453c4 454cc 45548 457fc 4cf7c 4d054
+  TransMatrix              called from 13c90
+  ratan2                   called from 131cc 3a6a4 4009c 42cc8 44068 4547c 454cc 45548 45bc8 4cf7c 4d054
+  rcos                     called from 35fa8 45bc8
+  rsin                     called from 35fa8 45bc8
+## LIBPAD.LIB
+  PadEnableCom             called from 10000 27028 53f58
+  PadGetState              called from 131cc
+  PadInfoMode              called from 131cc
+  PadInitDirect            called from 12d9c
+  PadSetAct                called from 131cc
+  PadSetActAlign           called from 131cc
+  PadSetMainMode           called from 131cc
+## LIBSN.LIB
+  __main                   called from 10000
+## LIBSND.LIB
+  SsInitHot                called from 171b8
+  SsUtReverbOff            called from 109a4 4a5d0
+## LIBSPU.LIB
+  SpuGetReverbModeParam    called from 47a8c
+  SpuGetVoiceAttr          called from 47a8c
+  SpuGetVoiceEnvelope      called from 482f0
+  SpuQuit                  called from 4a704
+  SpuSetCommonAttr         called from 47a8c 47c5c
+  SpuSetCommonCDMix        called from 5410c
+  SpuSetCommonCDVolume     called from 5410c 546b4 54704
+  SpuSetCommonMasterVolume called from 5410c
+  SpuSetIRQ                called from 47c5c 4a148
+  SpuSetIRQAddr            called from 47c5c 4a148
+  SpuSetIRQCallback        called from 47c5c 4a148
+  SpuSetKey                called from 47a8c 47c5c 47d78
+  SpuSetReverb             called from 47a8c 47c5c
+  SpuSetReverbModeDepth    called from 47a8c 47c5c
+  SpuSetReverbModeParam    called from 47c5c 47d78
+  SpuSetReverbModeType     called from 47a8c
+  SpuSetReverbVoice        called from 47c5c 47d78
+  SpuSetTransferCallback   called from 47a8c 47c5c
+  SpuSetTransferStartAddr  called from 46d08 46e14
+  SpuSetVoiceAttr          called from 47d78
+  SpuWritePartly           called from 46d08 46e14
